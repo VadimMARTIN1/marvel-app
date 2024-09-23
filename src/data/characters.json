@@ -1,0 +1,45 @@
+{
+    "characters": [
+      {
+        "id": 1,
+        "name": "Tony Stark"
+      },
+      {
+        "id": 2,
+        "name": "Steve Rogers"
+      },
+      {
+        "id": 3,
+        "name": "Bruce Banner"
+      },
+      {
+        "id": 4,
+        "name": "Natasha Romanoff"
+      },
+      {
+        "id": 5,
+        "name": "Thor Odinson"
+      },
+      {
+        "id": 6,
+        "name": "Clint Barton"
+      },
+      {
+        "id": 7,
+        "name": "Peter Parker"
+      },
+      {
+        "id": 8,
+        "name": "Wanda Maximoff"
+      },
+      {
+        "id": 9,
+        "name": "Stephen Strange"
+      },
+      {
+        "id": 10,
+        "name": "T'Challa"
+      }
+    ]
+  }
+  
