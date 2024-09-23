@@ -11,5 +11,6 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^3.0.2"
-  }
+  },
+  "start": "browser-sync start --server './src' --files '**/*.html, **/*.css'"
 }
