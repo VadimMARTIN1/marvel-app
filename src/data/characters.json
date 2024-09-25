@@ -1,0 +1,45 @@
+{
+    "characters": [
+      {
+        "id": 1,
+        "name": "Ironman"
+      },
+      {
+        "id": 2,
+        "name": "Spiderman"
+      },
+      {
+        "id": 3,
+        "name": "Dr Strange"
+      },
+      {
+        "id": 4,
+        "name": "Black Widow"
+      },
+      {
+        "id": 5,
+        "name": "Thor"
+      },
+      {
+        "id": 6,
+        "name": "Hulk"
+      },
+      {
+        "id": 7,
+        "name": "Captain America"
+      },
+      {
+        "id": 8,
+        "name": "Scarlet Witch"
+      },
+      {
+        "id": 9,
+        "name": "Thanos"
+      },
+      {
+        "id": 10,
+        "name": "Hydra"
+      }
+    ]
+  }
+  
