@@ -2,43 +2,43 @@
     "characters": [
       {
         "id": 1,
-        "name": "Tony Stark"
+        "name": "Ironman"
       },
       {
         "id": 2,
-        "name": "Steve Rogers"
+        "name": "Spiderman"
       },
       {
         "id": 3,
-        "name": "Bruce Banner"
+        "name": "Dr Strange"
       },
       {
         "id": 4,
-        "name": "Natasha Romanoff"
+        "name": "Black Widow"
       },
       {
         "id": 5,
-        "name": "Thor Odinson"
+        "name": "Thor"
       },
       {
         "id": 6,
-        "name": "Clint Barton"
+        "name": "Hulk"
       },
       {
         "id": 7,
-        "name": "Peter Parker"
+        "name": "Captain America"
       },
       {
         "id": 8,
-        "name": "Wanda Maximoff"
+        "name": "Scarlet Witch"
       },
       {
         "id": 9,
-        "name": "Stephen Strange"
+        "name": "Thanos"
       },
       {
         "id": 10,
-        "name": "T'Challa"
+        "name": "Hydra"
       }
     ]
   }
