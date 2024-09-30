@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <h1 id='title'>Marvel Characters</h1>
-      <CharactersList characters={ characters }/>
+      <CharactersList/>
       <br/>
       <NumberOfCharacters characters={characters}/>
     </>
