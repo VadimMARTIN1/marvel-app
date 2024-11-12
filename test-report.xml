@@ -1,13 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\vmarti23\marvel-app\src\components\NumberOfCharacters.test.jsx">
-    <testCase name="renders &quot;There is no character&quot; when characters array is empty" duration="17"/>
-    <testCase name="renders the correct number of characters when characters array is not empty" duration="2"/>
-    <testCase name="renders &quot;There is no character&quot; when no characters are provided" duration="2"/>
-  </file>
-  <file path="C:\Users\vmarti23\marvel-app\src\api\characters-api.test.js">
-    <testCase name="Characters API getCharacters should return the list of characters" duration="2"/>
-    <testCase name="Characters API getCharacterById should return a character by its ID" duration="0"/>
-    <testCase name="Characters API getCharacterById should return undefined if the character is not found" duration="1"/>
-  </file>
 </testExecutions>
