@@ -2,16 +2,20 @@
 <testExecutions version="1">
   <file path="C:\Users\vmarti23\marvel-app\src\api\characters-api.test.js">
     <testCase name="getCharacters should return the list of characters" duration="5"/>
+    <testCase name="getCharacters should return characters sorted by name in ascending order by default" duration="1"/>
+    <testCase name="getCharacters should return characters sorted by name in descending order" duration="1"/>
+    <testCase name="getCharacters should return characters sorted by modified date in ascending order" duration="0"/>
+    <testCase name="getCharacters should return characters sorted by modified date in descending order" duration="1"/>
     <testCase name="getCharacterById should return the character with the given id" duration="1"/>
     <testCase name="getCharacterById should throw an error if the character with the given id is not found" duration="2"/>
   </file>
   <file path="C:\Users\vmarti23\marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="CharactersPage render CharactersPage component" duration="59"/>
+    <testCase name="CharactersPage render CharactersPage component" duration="65"/>
   </file>
   <file path="C:\Users\vmarti23\marvel-app\src\components\CharactersList.test.jsx">
-    <testCase name="renders an empty list when no characters are provided" duration="47"/>
-    <testCase name="renders an empty list when characters is empty" duration="7"/>
+    <testCase name="renders an empty list when no characters are provided" duration="53"/>
+    <testCase name="renders an empty list when characters is empty" duration="8"/>
     <testCase name="renders the correct number of list items when characters are provided" duration="16"/>
-    <testCase name="updates the sort by and order options when changed" duration="11"/>
+    <testCase name="updates the sort by and order options when changed" duration="13"/>
   </file>
 </testExecutions>
