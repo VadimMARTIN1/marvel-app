@@ -1,20 +1,21 @@
 {
-  "name": "marvel-app",
+  "name": "marvel-app-2024",
   "private": true,
-  "version": "1.1.0-rc1",
+  "version": "0.3.1",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "react-router": "^6.25.1",
+    "react-router-dom": "^6.25.1"
   },
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.25.9",

@@ -1,3 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="C:\Users\vmarti23\marvel-app\src\api\characters-api.test.js">
+    <testCase name="getCharacters should return the list of characters" duration="6"/>
+    <testCase name="getCharacterById should return the character with the given id" duration="1"/>
+    <testCase name="getCharacterById should throw an error if the character with the given id is not found" duration="3"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\components\CharacterDetail.test.jsx">
+    <testCase name="renders the character detail correctly" duration="34"/>
+    <testCase name="does not render the character thumbnail image when not provided" duration="2"/>
+    <testCase name="renders &quot;no character&quot; when character is not provided" duration="2"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\pages\AboutPage.test.jsx">
+    <testCase name="AboutPage sets the document title correctly" duration="56"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\pages\ContactPage.test.jsx">
+    <testCase name="ContactPage sets the document title correctly" duration="72"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\pages\CharactersPage.test.jsx">
+    <testCase name="CharactersPage render CharactersPage component" duration="65"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\components\CharactersList.test.jsx">
+    <testCase name="renders an empty list when no characters are provided" duration="54"/>
+    <testCase name="renders an empty list when characters is empty" duration="9"/>
+    <testCase name="renders the correct number of list items when characters are provided" duration="19"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\pages\CharacterDetailPage.test.jsx">
+    <testCase name="CharacterDetailPage render CharacterDetailPage component" duration="33"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\components\NumberOfCharacters.test.jsx">
+    <testCase name="renders &quot;There is no character&quot; when characters array is empty" duration="12"/>
+    <testCase name="renders the correct number of characters when characters array is not empty" duration="2"/>
+    <testCase name="renders &quot;There is no character&quot; when no characters are provided" duration="1"/>
+  </file>
 </testExecutions>
