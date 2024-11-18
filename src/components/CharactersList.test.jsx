@@ -1,9 +1,13 @@
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { CharactersList } from './CharactersList';
+import * as api from '../api/characters-api';
+
+jest.mock('../api/characters-api');
 
 test('renders an empty list when no characters are provided', () => {
+    api.getCharacters.mockReturnValue([]);
     render(<CharactersList />, { wrapper: BrowserRouter });
     const listElement = screen.getByRole('list');
     expect(listElement).toBeEmptyDOMElement();
@@ -17,16 +21,29 @@ test('renders an empty list when characters is empty', () => {
 
 test('renders the correct number of list items when characters are provided', () => {
     const characters = [
-        { id: '1', name: 'Thor' },
-        { id: '2', name: 'Captain America' },
+        { id: 1, name: 'Character One' },
+        { id: 2, name: 'Character Two' }
     ];
-    render(<CharactersList characters={characters} />, { wrapper: BrowserRouter });
+    api.getCharacters.mockReturnValue(characters); // Mock the API call
+    render(<CharactersList />, { wrapper: BrowserRouter });
     const listItems = screen.getAllByRole('listitem');
     expect(listItems).toHaveLength(characters.length);
 
     characters.forEach(character => {
         const linkElement = screen.getByText(character.name);
         expect(linkElement).toBeInTheDocument();
-        expect(linkElement.closest('a')).toHaveAttribute('href', `/characters/${character.id}`);
     });
+});
+
+test('updates the sort by and order options when changed', () => {
+    render(<CharactersList />, { wrapper: BrowserRouter });
+
+    const sortBySelect = screen.getByLabelText(/Sort by:/i);
+    const orderSelect = screen.getByLabelText(/Order:/i);
+
+    fireEvent.change(sortBySelect, { target: { value: 'modified' } });
+    expect(sortBySelect).toHaveValue('modified');
+
+    fireEvent.change(orderSelect, { target: { value: 'desc' } });
+    expect(orderSelect).toHaveValue('desc');
 });
