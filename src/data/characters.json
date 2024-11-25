@@ -7,6 +7,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3",
             "extension": "jpg"
+        },
+        "capacities" : {
+            "intelligence": 85,
+            "strength": 70,
+            "speed": 60,
+            "endurance" : 75
         }
     },
     {
@@ -17,6 +23,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087",
             "extension": "jpg"
+        },
+        "capacities" : {
+            "intelligence": 80,
+            "strength": 85,
+            "speed": 70,
+            "endurance" : 90
         }
     },
     {
@@ -26,6 +38,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/90/5261a86cacb99",
             "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 70,
+            "strength": 80,
+            "speed": 75,
+            "endurance": 95
         }
     },
     {
@@ -36,6 +54,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/10/526033c8b474a",
             "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 60,
+            "strength": 90,
+            "speed": 50,
+            "endurance": 85
         }
     },
     {
@@ -46,6 +70,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0",
             "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 70,
+            "strength": 100,
+            "speed": 65,
+            "endurance": 95
         }
     },
     {
@@ -56,6 +86,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55",
             "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 95,
+            "strength": 85,
+            "speed": 80,
+            "endurance": 85
         }
     },
     {
@@ -66,6 +102,12 @@
         "thumbnail": {
           "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/b0/50fec1e49298a",
           "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 85,
+            "strength": 60,
+            "speed": 75,
+            "endurance": 70
         }
     },
     {
@@ -76,6 +118,12 @@
         "thumbnail": {
           "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/50/527bb6490a176",
           "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 90,
+            "strength": 95,
+            "speed": 95,
+            "endurance": 90
         }
     },
     {
@@ -85,7 +133,13 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/40/5274137e3e2cd",
             "extension": "jpg"
-        }
+        },
+        "capacities": {
+            "intelligence": 90,
+            "strength": 100,
+            "speed": 90,
+            "endurance": 100
+          }
     },
     {
         "id": "1009663",
@@ -94,6 +148,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350",
             "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 80,
+            "strength": 95,
+            "speed": 85,
+            "endurance": 90
         }
     },
     {
@@ -103,6 +163,12 @@
         "thumbnail": {
             "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/60/537bcaef0f6cf",
             "extension": "jpg"
+        },
+        "capacities": {
+            "intelligence": 75,
+            "strength": 85,
+            "speed": 80,
+            "endurance": 95
         }
     }
 ]

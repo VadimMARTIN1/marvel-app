@@ -1,3 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="C:\Users\vmarti23\marvel-app\src\api\characters-api.test.js">
+    <testCase name="characters-api getCharacters should return the list of characters with default order" duration="14"/>
+    <testCase name="characters-api getCharacters should return the list of characters ordered by name ascending" duration="0"/>
+    <testCase name="characters-api getCharacters should return the list of characters ordered by name descending" duration="0"/>
+    <testCase name="characters-api getCharacters should return the list of characters ordered by modified field ascending" duration="1"/>
+    <testCase name="characters-api getCharacters should return the list of characters ordered by modified field descending" duration="1"/>
+    <testCase name="characters-api getCharacterById should return the character with the given id" duration="0"/>
+    <testCase name="characters-api getCharacterById should throw an error if the character with the given id is not found" duration="3"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\components\CharactersList.test.jsx">
+    <testCase name="renders an empty list when no characters are provided" duration="53"/>
+    <testCase name="renders an empty list when characters is empty" duration="9"/>
+    <testCase name="renders the correct number of list items when characters are provided" duration="17"/>
+    <testCase name="updates the sort by and order options when changed" duration="13"/>
+  </file>
+  <file path="C:\Users\vmarti23\marvel-app\src\pages\CharactersPage.test.jsx">
+    <testCase name="CharactersPage render CharactersPage component" duration="83"/>
+    <testCase name="CharactersPage render CharactersPage component with order and orderBy from search params" duration="10"/>
+    <testCase name="CharactersPage render CharactersPage component with order and orderBy when the select changes" duration="19"/>
+  </file>
 </testExecutions>
