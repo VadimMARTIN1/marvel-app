@@ -1,48 +1,69 @@
-import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { useLoaderData } from 'react-router';
-import CharacterDetailPage from './CharacterDetailPage';
+import { BrowserRouter } from 'react-router-dom'
+import CharacterDetail from './CharacterDetail';
 
-// Mock the useLoaderData hook
-jest.mock('react-router', () => ({
-    useLoaderData: jest.fn(),
-}));
- 
-describe('CharacterDetailPage', () => {
-    const character = {
-        name: 'Thor',
-        description: 'God of Thunder',
-        modified: '2023-10-01',
-        thumbnail: { path: 'path/to/image', extension: 'jpg' },
-        capacities: {
-            force: 5,
-            intelligence: 8,
-            durability: 6,
-            energy: 6,
-            speed: 1,
-            fighting: 3
+describe('CharactersDetail', () => {
+    it('renders the character detail', () => {
+        // when 
+        const character = {
+            id: "1",
+            name: "Thor",
+            description: "Thor description",
+            thumbnail: {
+                path: "https://foo.bar",
+                extension: "jpg"
+            }
         }
-    };
 
-    beforeEach(() => {
-        useLoaderData.mockReturnValue(character);
+        // then
+        render(<CharacterDetail character={character} />, { wrapper: BrowserRouter });  
+
+        // expect a heading with the character name
+        const h2Element = screen.getByRole('heading', { level: 2, name: character.name });
+        expect(h2Element).toBeInTheDocument();
+
+        // expect a paragraph with the character description
+        const pElement = screen.getByText(character.description);
+        expect(pElement).toBeInTheDocument();
+
+        // expect an image with the character thumbnail
+        const imgElement = screen.getByRole('img', { name: character.name });
+        expect(imgElement).toBeInTheDocument();
+        expect(imgElement).toHaveAttribute('src', `${character.thumbnail.path}/standard_large.${character.thumbnail.extension}`);
     });
 
-    test('render CharacterDetailPage component', () => {
-        render(<CharacterDetailPage />);
-        expect(document.title).toBe('Thor | Marvel App');
+    it('renders the character detail without a thumbnail', () => {
+        // when 
+        const character = {
+            id: "1",
+            name: "Thor",
+            description: "Thor description",
+        }
 
-        const nameElement = screen.getByText(character.name);
-        expect(nameElement).toBeInTheDocument();
+        // then
+        render(<CharacterDetail character={character} />, { wrapper: BrowserRouter });  
 
-        const descriptionElement = screen.getByText(character.description);
-        expect(descriptionElement).toBeInTheDocument();
+        // expect a heading with the character name
+        const h2Element = screen.getByRole('heading', { level: 2, name: character.name });
+        expect(h2Element).toBeInTheDocument();
 
-        const modifiedElement = screen.getByText(character.modified);
-        expect(modifiedElement).toBeInTheDocument();
+        // expect a paragraph with the character description
+        const pElement = screen.getByText(character.description);
+        expect(pElement).toBeInTheDocument();
 
-        const imageElement = screen.getByAltText(character.name);
-        expect(imageElement).toBeInTheDocument();
-        expect(imageElement).toHaveAttribute('src', 'path/to/image/standard_large.jpg');
+        // expect no image
+        const imgElement = screen.queryByRole('img', { name: character.name });
+        expect(imgElement).not.toBeInTheDocument();
+    });
+
+    it('renders nothing when no character is provided', () => {
+        // when
+
+        // then
+        render(<CharacterDetail />, { wrapper: BrowserRouter });  
+
+        // expect empty h2 element
+        const h2Element = screen.queryByRole('heading', { level: 2 });
+        expect(h2Element).toBeEmptyDOMElement();        
     });
 });
