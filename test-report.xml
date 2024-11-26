@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="C:\Users\vmarti23\marvel-app\src\pages\CharacterDetailPage.test.jsx">
+    <testCase name="CharacterDetailPage Component renders &quot;loading...&quot; when character data is not loaded" duration="23"/>
+    <testCase name="CharacterDetailPage Component renders CharacterDetail when character data is loaded" duration="8"/>
+    <testCase name="CharacterDetailPage Component renders CharacterDetail component when character data is loaded" duration="3"/>
+    <testCase name="CharacterDetailPage Component renders D3PieChart and RechartsPieChart components when character data is loaded" duration="4"/>
+    <testCase name="CharacterDetailPage Component sets document title correctly when character data is loaded" duration="3"/>
+  </file>
 </testExecutions>

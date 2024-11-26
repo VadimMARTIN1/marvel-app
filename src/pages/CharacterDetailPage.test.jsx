@@ -1,48 +1,53 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { useLoaderData } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import CharacterDetailPage from './CharacterDetailPage';
+import { useLoaderData } from 'react-router';
 
 // Mock the useLoaderData hook
 jest.mock('react-router', () => ({
+    ...jest.requireActual('react-router'),
     useLoaderData: jest.fn(),
 }));
- 
-describe('CharacterDetailPage', () => {
-    const character = {
-        name: 'Thor',
-        description: 'God of Thunder',
-        modified: '2023-10-01',
-        thumbnail: { path: 'path/to/image', extension: 'jpg' },
-        capacities: {
-            force: 5,
-            intelligence: 8,
-            durability: 6,
-            energy: 6,
-            speed: 1,
-            fighting: 3
-        }
-    };
 
-    beforeEach(() => {
-        useLoaderData.mockReturnValue(character);
+jest.mock('../components/CharacterDetail', () => () => <div>CharacterDetail</div>);
+jest.mock('../components/D3PieChart', () => () => <div>D3PieChart</div>);
+jest.mock('../components/RechartsPieChart', () => () => <div>RechartsPieChart</div>);
+
+describe('CharacterDetailPage Component', () => {
+
+    test('renders "loading..." when character data is not loaded', () => {
+        useLoaderData.mockReturnValue(null);
+        render(<CharacterDetailPage />);
+        expect(screen.getByText('loading...')).toBeInTheDocument();
     });
 
-    test('render CharacterDetailPage component', () => {
+    test('renders CharacterDetail when character data is loaded', () => {
+        const character = { name: 'Character Name' };
+        useLoaderData.mockReturnValue(character);
         render(<CharacterDetailPage />);
-        expect(document.title).toBe('Thor | Marvel App');
+        expect(screen.getByText('CharacterDetail')).toBeInTheDocument();
+    });
 
-        const nameElement = screen.getByText(character.name);
-        expect(nameElement).toBeInTheDocument();
+    test('renders CharacterDetail component when character data is loaded', () => {
+        const character = { name: 'Character Name' };
+        useLoaderData.mockReturnValue(character);
+        render(<CharacterDetailPage />);
+        expect(screen.getByText('CharacterDetail')).toBeInTheDocument();
+    });
 
-        const descriptionElement = screen.getByText(character.description);
-        expect(descriptionElement).toBeInTheDocument();
+    test('renders D3PieChart and RechartsPieChart components when character data is loaded', () => {
+        const character = { name: 'Character Name', capacities: {} };
+        useLoaderData.mockReturnValue(character);
+        render(<CharacterDetailPage />);
+        expect(screen.getByText('D3PieChart')).toBeInTheDocument();
+        expect(screen.getByText('RechartsPieChart')).toBeInTheDocument();
+    });
 
-        const modifiedElement = screen.getByText(character.modified);
-        expect(modifiedElement).toBeInTheDocument();
-
-        const imageElement = screen.getByAltText(character.name);
-        expect(imageElement).toBeInTheDocument();
-        expect(imageElement).toHaveAttribute('src', 'path/to/image/standard_large.jpg');
+    test('sets document title correctly when character data is loaded', () => {
+        const character = { name: 'Character Name' };
+        useLoaderData.mockReturnValue(character);
+        render(<CharacterDetailPage />);
+        expect(document.title).toBe('Character Name | Marvel App');
     });
 });
