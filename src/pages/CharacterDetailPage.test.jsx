@@ -1,69 +1,53 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom'
-import CharacterDetail from './CharacterDetail';
+import { BrowserRouter } from 'react-router-dom';
+import CharacterDetailPage from './CharacterDetailPage';
+import { useLoaderData } from 'react-router';
 
-describe('CharactersDetail', () => {
-    it('renders the character detail', () => {
-        // when 
-        const character = {
-            id: "1",
-            name: "Thor",
-            description: "Thor description",
-            thumbnail: {
-                path: "https://foo.bar",
-                extension: "jpg"
-            }
-        }
+// Mock the useLoaderData hook
+jest.mock('react-router', () => ({
+    ...jest.requireActual('react-router'),
+    useLoaderData: jest.fn(),
+}));
 
-        // then
-        render(<CharacterDetail character={character} />, { wrapper: BrowserRouter });  
+jest.mock('../components/CharacterDetail', () => () => <div>CharacterDetail</div>);
+jest.mock('../components/D3PieChart', () => () => <div>D3PieChart</div>);
+jest.mock('../components/RechartsPieChart', () => () => <div>RechartsPieChart</div>);
 
-        // expect a heading with the character name
-        const h2Element = screen.getByRole('heading', { level: 2, name: character.name });
-        expect(h2Element).toBeInTheDocument();
+describe('CharacterDetailPage Component', () => {
 
-        // expect a paragraph with the character description
-        const pElement = screen.getByText(character.description);
-        expect(pElement).toBeInTheDocument();
-
-        // expect an image with the character thumbnail
-        const imgElement = screen.getByRole('img', { name: character.name });
-        expect(imgElement).toBeInTheDocument();
-        expect(imgElement).toHaveAttribute('src', `${character.thumbnail.path}/standard_large.${character.thumbnail.extension}`);
+    test('renders "loading..." when character data is not loaded', () => {
+        useLoaderData.mockReturnValue(null);
+        render(<CharacterDetailPage />);
+        expect(screen.getByText('loading...')).toBeInTheDocument();
     });
 
-    it('renders the character detail without a thumbnail', () => {
-        // when 
-        const character = {
-            id: "1",
-            name: "Thor",
-            description: "Thor description",
-        }
-
-        // then
-        render(<CharacterDetail character={character} />, { wrapper: BrowserRouter });  
-
-        // expect a heading with the character name
-        const h2Element = screen.getByRole('heading', { level: 2, name: character.name });
-        expect(h2Element).toBeInTheDocument();
-
-        // expect a paragraph with the character description
-        const pElement = screen.getByText(character.description);
-        expect(pElement).toBeInTheDocument();
-
-        // expect no image
-        const imgElement = screen.queryByRole('img', { name: character.name });
-        expect(imgElement).not.toBeInTheDocument();
+    test('renders CharacterDetail when character data is loaded', () => {
+        const character = { name: 'Character Name' };
+        useLoaderData.mockReturnValue(character);
+        render(<CharacterDetailPage />);
+        expect(screen.getByText('CharacterDetail')).toBeInTheDocument();
     });
 
-    it('renders nothing when no character is provided', () => {
-        // when
+    test('renders CharacterDetail component when character data is loaded', () => {
+        const character = { name: 'Character Name' };
+        useLoaderData.mockReturnValue(character);
+        render(<CharacterDetailPage />);
+        expect(screen.getByText('CharacterDetail')).toBeInTheDocument();
+    });
 
-        // then
-        render(<CharacterDetail />, { wrapper: BrowserRouter });  
+    test('renders D3PieChart and RechartsPieChart components when character data is loaded', () => {
+        const character = { name: 'Character Name', capacities: {} };
+        useLoaderData.mockReturnValue(character);
+        render(<CharacterDetailPage />);
+        expect(screen.getByText('D3PieChart')).toBeInTheDocument();
+        expect(screen.getByText('RechartsPieChart')).toBeInTheDocument();
+    });
 
-        // expect empty h2 element
-        const h2Element = screen.queryByRole('heading', { level: 2 });
-        expect(h2Element).toBeEmptyDOMElement();        
+    test('sets document title correctly when character data is loaded', () => {
+        const character = { name: 'Character Name' };
+        useLoaderData.mockReturnValue(character);
+        render(<CharacterDetailPage />);
+        expect(document.title).toBe('Character Name | Marvel App');
     });
 });

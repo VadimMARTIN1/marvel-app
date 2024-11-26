@@ -9,8 +9,15 @@ const CharacterDetailPage = () => {
     const character = useLoaderData();
 
     useEffect(() => {
+        if (!character) {
+            return;
+        }
         document.title = `${character.name} | Marvel App`;
     }, [character]);
+
+    if (!character) {
+        return <div>loading...</div>;
+    }
 
     return (
         <div>
