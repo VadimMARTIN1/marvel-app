@@ -1,22 +1,50 @@
-// CetteCette façon de faire fonctionne, mais elle n'est pas optimale. Elle mélange la récupération des données et l'affichage des composants.
-// react_router nous permet de faire mieux en utilisant des hooks pour récupérer les données avant d'afficher le composant et ainsi de séparer récupération des données et affichage.
-// Adapter le code pour utiliser react_router et les hooks comme dans l'exemple du guide, grâce aux concepts de loader et useLoaderData . On appelera directement la fonction getCharacters dans le loader (pas de fonction fetch ).
+import React, { useState } from 'react';
+import { CharactersList } from "../components/CharactersList";
+import { NumberOfCharacters } from "../components/NumberOfCharacters";
+import { useLoaderData } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
+import { DEFAULT_ORDER, DEFAULT_ORDER_BY } from '../api/characters-api';
 
-import { useLoaderData } from "react-router-dom";
+const CharactersPage = () => {
+    // change the title of the page
+    document.title = "Marvel App";
 
-export default function CharactersPage() {
-    const characters = useLoaderData(); // Assurez-vous que cette fonction soit importée correctement
+    const characters = useLoaderData();
+
+    // get the search params from the URL
+    let [searchParams, setSearchParams] = useSearchParams();
+
+    // Get the order and orderBy from the search params or set the default values
+    const [orderBy, setOrderBy] = useState(searchParams.get('orderBy') || DEFAULT_ORDER_BY)
+    const [order, setOrder] = useState(searchParams.get('order') || DEFAULT_ORDER)
+
+
+    // Update the search params when the order or orderBy state changes
+    React.useEffect(() => {
+        setSearchParams({ order, orderBy })
+    }, [order, orderBy, setSearchParams])
 
     return (
-        <div>
-            <h1>Liste des personnages</h1>
-            <ul>
-                {characters.map(character => (
-                    <li key={character.id}>
-                        <a href={`/character/${character.id}`}>{character.name}</a>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <>
+            <h2>Marvel Characters</h2>
+            {/* Order by  */}
+            <label htmlFor="orderBy">Order by:</label>
+            <select id='orderBy' data-testid='orderBy' value={orderBy} onChange={(e) => setOrderBy(e.target.value)}>
+                <option value="name">Name</option>
+                <option value="modified">Modified</option>
+            </select>
+            &nbsp;
+            {/* Order */}
+            <label htmlFor="order">Order:</label>
+            <select id='order' data-testid='order' value={order} onChange={(e) => setOrder(e.target.value)}>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+            <CharactersList characters={characters} />
+            <br />
+            <NumberOfCharacters characters={characters} />
+        </>
     );
-}
+};
+
+export default CharactersPage;

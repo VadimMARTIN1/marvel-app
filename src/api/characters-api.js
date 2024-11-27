@@ -1,14 +1,29 @@
-// fonction getCharacters qui retourne la liste des personnages
-// fonction getCharacterById qui retourne un personnage en fonction de son id en récupérant les données du fichier characters.json
+import characters from '../data/characters.json'
 
-import characters from '../data/characters.json';
+export const DEFAULT_ORDER_BY = 'name';
+export const DEFAULT_ORDER = 'asc';
 
-// Fonction pour retourner la liste des personnages
-export function getCharacters() {
-    return characters;
+/**
+ * List of characters
+ * @returns {Array} characters
+ */
+export const getCharacters = (orderBy = DEFAULT_ORDER_BY, order = DEFAULT_ORDER) => {
+    const sortedCharacters =  [...characters].sort((a, b) => 
+        order === 'asc' ? a[orderBy].localeCompare(b[orderBy]) : b[orderBy].localeCompare(a[orderBy])
+    );
+
+    return sortedCharacters;
 }
 
-// Fonction pour retourner un personnage par son ID
-export function getCharacterById(id) {
-    return characters.find(character => character.id === id);
+/**
+ * Get a character by id
+ * @param {number} id
+ * @returns {Object} character
+ */
+export const getCharacterById = (id) => {
+    const character = characters.find(character => character.id === id);
+    if (!character) {
+        throw new Error(`Character with id ${id} not found`);
+    }
+    return character;
 }
