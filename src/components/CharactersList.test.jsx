@@ -29,7 +29,7 @@ test('renders the correct number of list items when characters are provided', ()
         const linkElement = screen.getByText(character.name);
         expect(linkElement).toBeInTheDocument();
         expect(linkElement.closest('a')).toHaveAttribute('href', `/characters/${character.id}`);
-        const formattedDate = screen.getAllByText(/Apr 04, 2020|Jan 13, 2014/);
-        expect(formattedDate).toHaveLength(1);
+        const formattedDate = screen.getByText(/Apr 04, 2020|Jan 13, 2014/);
+        expect(formattedDate).toBeInTheDocument();
     });
 });
