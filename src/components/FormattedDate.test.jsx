@@ -13,7 +13,6 @@ describe('FormattedDate', () => {
     test('handles an invalid date gracefully', () => {
         const date = 'invalid-date';
         render(<FormattedDate date={date} />);
-        screen.debug();
         const dateElement = screen.getByText('Invalid Date');
         expect(dateElement).toBeInTheDocument();
     });
