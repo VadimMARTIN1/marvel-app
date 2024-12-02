@@ -1,3 +1,5 @@
+import FormattedDate from './FormattedDate';
+
 function CharacterDetail({ character = {} }) {
     // if character is not provided, then render "No character"
     if (!character || Object.keys(character).length === 0) {
@@ -12,7 +14,7 @@ function CharacterDetail({ character = {} }) {
                     character.thumbnail && <img src={`${character.thumbnail.path}/standard_large.${character.thumbnail.extension}`} alt={character.name} />
                 }
                 <p>{character.description}</p>
-                <p>{character.modified}</p>
+                <p> <FormattedDate date={character.modified} /> </p>
             </div>
         );
     }
