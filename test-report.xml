@@ -1,30 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\vmarti23\marvel-app\src\api\characters-api.test.js">
-    <testCase name="characters-api getCharacters should return the list of characters with default order" duration="14"/>
-    <testCase name="characters-api getCharacters should return the list of characters ordered by name ascending" duration="1"/>
-    <testCase name="characters-api getCharacters should return the list of characters ordered by name descending" duration="1"/>
-    <testCase name="characters-api getCharacters should return the list of characters ordered by modified field ascending" duration="1"/>
-    <testCase name="characters-api getCharacters should return the list of characters ordered by modified field descending" duration="1"/>
-    <testCase name="characters-api getCharacterById should return the character with the given id" duration="0"/>
-    <testCase name="characters-api getCharacterById should throw an error if the character with the given id is not found" duration="4"/>
-  </file>
-  <file path="C:\Users\vmarti23\marvel-app\src\pages\CompareCharactersPage.test.jsx">
-    <testCase name="CompareCharactersPage sets the document title correctly" duration="18"/>
-    <testCase name="CompareCharactersPage renders the heading correctly" duration="36"/>
-    <testCase name="CompareCharactersPage renders the CompareCharacters component with correct props" duration="2"/>
-  </file>
-  <file path="C:\Users\vmarti23\marvel-app\src\Layout.test.jsx">
-    <testCase name="renders the layout with correct elements" duration="81"/>
-  </file>
-  <file path="C:\Users\vmarti23\marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="CharactersPage render CharactersPage component" duration="73"/>
-    <testCase name="CharactersPage render CharactersPage component with order and orderBy from search params" duration="22"/>
-    <testCase name="CharactersPage render CharactersPage component with order and orderBy when the select changes" duration="12"/>
-  </file>
-  <file path="C:\Users\vmarti23\marvel-app\src\components\CompareCharacters.test.jsx">
-    <testCase name="CompareCharacters renders correctly with default selected characters" duration="105"/>
-    <testCase name="CompareCharacters updates the selected characters when options are changed" duration="51"/>
-    <testCase name="CompareCharacters renders the radar chart correctly" duration="27"/>
-  </file>
 </testExecutions>
