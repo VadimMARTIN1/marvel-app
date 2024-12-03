@@ -4,6 +4,7 @@ import AboutPage from "./pages/AboutPage";
 import CharacterDetailPage from "./pages/CharacterDetailPage";
 import CharactersPage from "./pages/CharactersPage";
 import ContactPage from "./pages/ContactPage";
+import CompareCharactersPage from "./pages/CompareCharactersPage";
 
 const routes = [
     {
